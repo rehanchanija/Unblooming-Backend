@@ -31,6 +31,12 @@ export class Order {
   @Prop({ required: true })
   customer: string;
 
+  @Prop()
+  email: string;
+
+  @Prop()
+  phone: string;
+
   @Prop({ required: true })
   total: string;
 
@@ -43,7 +49,7 @@ export class Order {
   @Prop({ type: [OrderItemSchema], default: [] })
   items: OrderItem[];
 
-  @Prop({ default: 'Pending' }) // Pending, Shipped, Delivered, Cancelled
+  @Prop({ default: 'Placed' }) // Placed, Shipped, Delivered, Cancelled
   status: string;
 }
 

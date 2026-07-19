@@ -13,6 +13,7 @@ import { CloudinaryModule } from './cloudinary/cloudinary.module';
 import { CategoriesModule } from './categories/categories.module';
 import { ColorsModule } from './colors/colors.module';
 import { CartModule } from './cart/cart.module';
+import { OrderStatusModule } from './order-status/order-status.module';
 
 @Module({
   imports: [
@@ -38,6 +39,7 @@ import { CartModule } from './cart/cart.module';
     CategoriesModule,
     ColorsModule,
     CartModule,
+    OrderStatusModule,
   ],
   controllers: [AppController],
   providers: [AppService],
