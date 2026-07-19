@@ -1,8 +1,6 @@
-import { Controller, Post, UseInterceptors, UploadedFile, BadRequestException } from '@common';
-// Wait, I need to use proper imports. Let me fix the imports.
 import { Controller, Post, UseInterceptors, UploadedFile, BadRequestException } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { CloudinaryService } from './cloudinary.service';
+import { CloudinaryService } from './cloudinary.service.js';
 
 @Controller('upload')
 export class CloudinaryController {
