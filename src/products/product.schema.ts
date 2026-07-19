@@ -11,8 +11,8 @@ export class Product {
   @Prop({ required: true })
   category: string;
 
-  @Prop({ required: true })
-  color: string;
+  @Prop({ type: [{ color: String, imageUrl: String }] })
+  variants: { color: string; imageUrl: string }[];
 
   @Prop({ required: true })
   price: string;
@@ -26,8 +26,6 @@ export class Product {
   @Prop({ type: Object })
   technicalSpecifications: any;
 
-  @Prop()
-  imageUrl: string;
 }
 
 export const ProductSchema = SchemaFactory.createForClass(Product);
