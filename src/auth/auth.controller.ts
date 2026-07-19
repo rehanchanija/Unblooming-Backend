@@ -14,4 +14,9 @@ export class AuthController {
   login(@Body() loginDto: any) {
     return this.authService.login(loginDto);
   }
+
+  @Post('admin-login')
+  adminLogin(@Body() loginDto: any) {
+    return this.authService.adminLogin(loginDto);
+  }
 }

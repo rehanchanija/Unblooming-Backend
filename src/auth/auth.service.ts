@@ -35,6 +35,29 @@ export class AuthService {
   }
 
   async login(loginDto: any) {
+    const { email, identifier, password } = loginDto;
+    const loginId = identifier || email;
+
+    const user = await this.usersService.findByEmail(loginId) || await this.usersService.findByPhone(loginId);
+    if (!user) {
+      throw new UnauthorizedException('Invalid credentials');
+    }
+
+    const isMatch = await bcrypt.compare(password, user.passwordHash);
+    if (!isMatch) {
+      throw new UnauthorizedException('Invalid credentials');
+    }
+
+    if (user.role === 'admin') {
+      throw new UnauthorizedException('Please use the admin portal to log in');
+    }
+
+    const userObj: any = user.toObject();
+    delete userObj.passwordHash;
+    return userObj;
+  }
+
+  async adminLogin(loginDto: any) {
     const { email, password } = loginDto;
 
     const user = await this.usersService.findByEmail(email);
@@ -45,6 +68,10 @@ export class AuthService {
     const isMatch = await bcrypt.compare(password, user.passwordHash);
     if (!isMatch) {
       throw new UnauthorizedException('Invalid credentials');
+    }
+
+    if (user.role !== 'admin') {
+      throw new UnauthorizedException('Unauthorized: Admin access required');
     }
 
     const userObj: any = user.toObject();

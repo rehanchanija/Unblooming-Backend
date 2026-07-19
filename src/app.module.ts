@@ -24,6 +24,8 @@ import { AuthModule } from './auth/auth.module';
     ContentModule,
     ProductsModule,
     OrdersModule,
+    UsersModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

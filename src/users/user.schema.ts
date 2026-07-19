@@ -14,6 +14,9 @@ export class User {
   @Prop({ required: true, unique: true })
   phone: string;
 
+  @Prop({ default: 'user' })
+  role: string;
+
   @Prop({ required: true })
   passwordHash: string;
 }
