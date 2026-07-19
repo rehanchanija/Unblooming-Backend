@@ -37,6 +37,7 @@ import { CartModule } from './cart/cart.module';
     CloudinaryModule,
     CategoriesModule,
     ColorsModule,
+    CartModule,
   ],
   controllers: [AppController],
   providers: [AppService],
