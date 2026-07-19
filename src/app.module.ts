@@ -6,6 +6,8 @@ import { AppService } from './app.service';
 import { ContentModule } from './content/content.module';
 import { ProductsModule } from './products/products.module';
 import { OrdersModule } from './orders/orders.module';
+import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
