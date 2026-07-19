@@ -20,8 +20,8 @@ export class Product {
   @Prop()
   details: string;
 
-  @Prop()
-  technicalSpecifications: string;
+  @Prop({ type: Object })
+  technicalSpecifications: any;
 
   @Prop()
   imageUrl: string;
