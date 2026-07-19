@@ -9,6 +9,8 @@ import { OrdersModule } from './orders/orders.module';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { CloudinaryModule } from './cloudinary/cloudinary.module';
+import { CategoriesModule } from './categories/categories.module';
+import { ColorsModule } from './colors/colors.module';
 
 @Module({
   imports: [
@@ -28,6 +30,8 @@ import { CloudinaryModule } from './cloudinary/cloudinary.module';
     UsersModule,
     AuthModule,
     CloudinaryModule,
+    CategoriesModule,
+    ColorsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
