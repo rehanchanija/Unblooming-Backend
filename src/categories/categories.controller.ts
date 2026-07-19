@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete, Patch } from '@nestjs/common';
 import { CategoriesService } from './categories.service';
 
 @Controller('categories')
@@ -13,6 +13,11 @@ export class CategoriesController {
   @Get()
   findAll() {
     return this.categoriesService.findAll();
+  }
+
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() updateCategoryDto: any) {
+    return this.categoriesService.update(id, updateCategoryDto);
   }
 
   @Delete(':id')

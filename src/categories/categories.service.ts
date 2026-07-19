@@ -23,4 +23,14 @@ export class CategoriesService {
     }
     return deletedCategory;
   }
+
+  async update(id: string, updateCategoryDto: any): Promise<Category> {
+    const updatedCategory = await this.categoryModel
+      .findByIdAndUpdate(id, updateCategoryDto, { new: true })
+      .exec();
+    if (!updatedCategory) {
+      throw new NotFoundException(`Category with ID ${id} not found`);
+    }
+    return updatedCategory;
+  }
 }

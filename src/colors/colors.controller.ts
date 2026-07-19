@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete, Patch } from '@nestjs/common';
 import { ColorsService } from './colors.service';
 
 @Controller('colors')
@@ -13,6 +13,11 @@ export class ColorsController {
   @Get()
   findAll() {
     return this.colorsService.findAll();
+  }
+
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() updateColorDto: any) {
+    return this.colorsService.update(id, updateColorDto);
   }
 
   @Delete(':id')

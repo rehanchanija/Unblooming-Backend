@@ -23,4 +23,14 @@ export class ColorsService {
     }
     return deletedColor;
   }
+
+  async update(id: string, updateColorDto: any): Promise<Color> {
+    const updatedColor = await this.colorModel
+      .findByIdAndUpdate(id, updateColorDto, { new: true })
+      .exec();
+    if (!updatedColor) {
+      throw new NotFoundException(`Color with ID ${id} not found`);
+    }
+    return updatedColor;
+  }
 }
